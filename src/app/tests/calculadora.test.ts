@@ -1,5 +1,11 @@
-import { describe, expect, test } from "@jest/globals";
+import * as Calculator from "@/app/models/calculator";
 
-test("nome do teste", () => {
-  expect(1).toBe(1);
+test("sum 2 + 2 should return 4", () => {
+  const soma = Calculator.sum(2, 2);
+  expect(soma).toBe(4);
+});
+
+test("sum 5 + 100 should return 105", () => {
+  const soma = Calculator.sum(5, 100);
+  expect(soma).toBe(105);
 });

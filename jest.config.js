@@ -5,4 +5,8 @@ module.exports = {
   transform: {
     "^.+\.tsx?$": ["ts-jest", {}],
   },
+  moduleFileExtensions: ["ts", "tsx", "js"],
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
 };
