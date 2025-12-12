@@ -7,7 +7,7 @@ async function query(queryObject: string) {
     database: process.env.POSTGRES_DB,
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
-    ssl: process.env.NODE_ENV === "production",
+    ssl: getSSLValues(),
   });
 
   try {
@@ -40,3 +40,13 @@ export const database = {
     return result.rowCount;
   },
 };
+
+function getSSLValues() {
+  if (process.env.POSTGRES_CA) {
+    return {
+      ca: process.env.POSTGRES_CA,
+    };
+  }
+
+  return process.env.NODE_ENV === "production";
+}
