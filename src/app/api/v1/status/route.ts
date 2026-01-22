@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { database } from "@/app/infra/database";
+import { database } from "@/infra/database";
 
 export async function GET(request: NextRequest) {
   const updatedAt = new Date().toISOString();
